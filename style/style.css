@@ -1,0 +1,396 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Lato);
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+#white-canvas {
+    height: 300px;
+    width: 30px;
+    background-color: white;
+    position: relative;
+    display: inline-block;
+}
+
+body {
+
+    background-color: #454643;
+    font-family: "Lato", sans-serif;
+    margin: 0 auto;
+}
+
+main {
+    background-color: #454643;
+}
+
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* center a block element horizontally */
+    overflow: hidden;
+}
+
+
+.brick-wall {
+    background-color: brown;
+    height: 20px;
+    margin-top: 30px;
+    width: 40%;
+    display: inline;
+}
+
+.brick-gate {
+    background-color: saddlebrown;
+    height: 30px;
+    width: 2%;
+    display: inline;
+    margin-top: 20px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.board {
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Allerta Stencil', sans-serif;
+    font-size: 4em;
+    text-align: center;
+}
+
+.heading{
+    background-color: darkcyan;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 1em;
+}
+
+h1{
+    margin-top: 0;
+    padding: 10px 0px 10px 0px;
+}
+
+footer{
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+footer p{
+    padding: 30px;
+    margin: 0;
+}
+
+/*rear-view mirror of the car before and after for left and right side*/
+.car:after,
+.car:before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: inherit;
+    right: 80px;
+    position: absolute;
+}
+
+
+/*car headlight*/
+.car .car-front:after,
+.car .car-front:before {
+    content: "";
+    width: 20px;
+    height: 50px;
+    background-image: linear-gradient(to bottom, #ecf909, #b8cb37, #8b9e44, #657147, #454643);
+    position: absolute;
+    top: 80px;
+}
+
+/*side windows*/
+.car .car-middle:before,
+.car .car-middle:after {
+    content: "";
+    display: block;
+    border-bottom: 10px solid #495d65;
+    border-left: 30px solid transparent;
+    border-right: 40px solid transparent;
+    height: 10px;
+    width: 130px;
+    position: absolute;
+    right: 52px;
+}
+
+/*brake light*/
+.car .car-back:before,
+.car .car-back:after {
+    content: "";
+    width: 23px;
+    height: 12px;
+    background-color: #D92626;
+    position: absolute;
+    bottom: -50px;
+}
+
+
+.car {
+    width: 285px;
+    height: 125px;
+    margin-top: 40px;
+    margin-left: 0px;
+    background: #b6bec3;
+    position: relative;
+    display: block;
+    vertical-align: middle;
+    *vertical-align: auto;
+    *display: inline;
+    border-top-right-radius: 40px 50%;
+    border-bottom-right-radius: 40px 50%;
+    border-bottom-left-radius: 20px 30px;
+    border-top-left-radius: 20px 30px;
+}
+
+.going {
+    transform: scale(0.5);
+    margin-left: -10%;
+    animation: car-left-right 2s infinite linear both 1s;
+}
+
+.oncoming {
+    transform: scale(0.5) rotateZ(-180deg);
+    margin-left: 90%;
+    animation: car-right-left 5s infinite linear both 1s;
+}
+
+.player {
+    transform: scale(0.5) rotateZ(-90deg);
+    margin-bottom: 70px;
+    position: absolute;
+    margin-left: 30%;
+    
+}
+
+.launch_car {
+    animation: car-top-bottom 3s linear backwards;
+}
+
+/* Rear view mirror positionings*/
+.car:after {
+    top: -12px;
+    border-radius: 3px 100% 0 0;
+}
+
+.car:before {
+    bottom: -12px;
+    border-radius: 0 0 100% 3px;
+}
+
+
+/*front windshield*/
+.car .car-front {
+    border-bottom: 40px solid #495d65;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    top: 42px;
+    height: 0;
+    width: 70px;
+    right: 30px;
+    position: absolute;
+    transform: rotate(-90deg);
+    box-shadow: 0px 3px 0 #fff;
+}
+
+/*Headlight light angle*/
+.car .car-front:after {
+    transform: rotate(30deg);
+    left: -20px;
+}
+
+.car .car-front:before {
+    transform: rotate(-30deg);
+    right: -20px;
+}
+
+/*Different car colors*/
+.car.car-blue {
+    background-color: #3498db;
+}
+
+.car.car-red {
+    background-color: #e74c3c;
+}
+
+.car.car-silver {
+    background-color: silver;
+}
+
+.car.car-green {
+    background-color: green;
+}
+
+.car.car-orange {
+    background-color: orange;
+}
+
+/*side windshield*/
+.car .car-middle:before {
+    bottom: 8px;
+}
+
+.car .car-middle:after {
+    top: 8px;
+    transform: scale(1, -1);
+}
+
+/*rear windshield*/
+.car .car-back {
+    content: "";
+    border-bottom: 35px solid #495d65;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    height: 0;
+    top: 44px;
+    width: 60px;
+    left: -5px;
+    transform: rotate(90deg);
+    position: absolute;
+}
+
+/*tail lamp position*/
+.car .car-back:before {
+    left: -40px;
+    border-bottom-left-radius: 40px 22px;
+}
+
+.car .car-back:after {
+    right: -40px;
+    border-bottom-right-radius: 40px 22px;
+}
+
+
+.btn {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: azure;
+    background-color: #8f0000;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #450303;
+    display: block;
+    width: 30%;
+    margin-bottom: 50px;
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn:hover {
+    background-color: #9f0202;
+}
+
+.btn:active {
+    background-color: red;
+    box-shadow: 0 5px brown;
+    transform: translateY(4px);
+}
+
+.road {
+    border: 4px dashed white;
+    display: block;
+}
+
+.road.lot{
+    margin-top: 60px;
+}
+
+.road.bottom.left{
+    width: 40%;
+    height: 200px;
+    border-radius: 20px;
+    overflow: hidden;
+    border-top-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-color: #454643;
+    border-left-color: #454643;
+}
+
+.road.bottom.right{
+    width: 40%;
+    height: 200px;
+    border-radius: 20px;
+    overflow: hidden;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-color: #454643;
+    border-right-color: #454643;
+}
+
+.ins{
+    color: white;
+    text-align: center;
+    padding: 0px 10px 0px 10px;
+}
+
+#ln {
+    font-weight: bolder;
+    color: #f8eb54;
+}
+@keyframes car-left-right {
+    0% {
+        margin-left: -20%;
+    }
+
+    100% {
+        margin-left: 100%;
+    }
+}
+
+@keyframes car-right-left {
+    0% {
+        margin-left: 96%;
+    }
+
+    100% {
+        margin-left: -20%;
+    }
+}
+
+@keyframes car-top-bottom {
+    0% {
+        top: 80%;
+    }
+
+    100% {
+        top: -20%;
+    }
+}
+
+@media screen and (max-width: 560px){
+    
+    .brick-wall{
+        width: 30%;
+    }
+    
+    .player{
+        margin-left: 20%;
+    }
+    
+    .btn{
+        width: 40%;
+    }
+    
+}
